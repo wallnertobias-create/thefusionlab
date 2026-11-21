@@ -1,0 +1,433 @@
+/* The Fusion Lab: Landing Pages. Regeln aus projects/youtube-channel/brand/BRAND.md */
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/inter-var.woff2") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("fonts/instrument-serif-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --navy: #050B17;
+  --surface: #131D2D;
+  --cyan: #7EF7F8;
+  --white: #F2F6F8;
+  --grey: #8E99A8;
+  --edge: linear-gradient(135deg,
+    rgba(126, 247, 248, .9) 0%,
+    rgba(126, 247, 248, .35) 18%,
+    rgba(126, 247, 248, .08) 45%,
+    rgba(126, 247, 248, .04) 70%,
+    rgba(126, 247, 248, .16) 100%);
+  --radius: 18px;
+  --max: 1040px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--white);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Hintergrund: Raster G2 + weiches Licht H1, zur Mitte voll, nach außen ausgeblendet */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 18%, rgba(47, 183, 214, .10), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 70% 60%, rgba(40, 90, 200, .18), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Cpath d='M96 87v18M87 96h18' stroke='%237EF7F8' stroke-opacity='.3' stroke-width='2'/%3E%3C/svg%3E"),
+    linear-gradient(rgba(126, 247, 248, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 247, 248, .06) 1px, transparent 1px);
+  background-size: auto, auto, 192px 192px, 96px 96px, 96px 96px;
+  background-position: center, center, center top, center top, center top;
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, #000 35%, transparent 100%);
+          mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, #000 35%, transparent 100%);
+}
+
+a { color: var(--cyan); text-underline-offset: 3px; }
+
+.wrap { width: min(var(--max), 100% - 32px); margin-inline: auto; }
+
+/* Kopfzeile */
+.top {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 28px 0 0;
+  font-size: .95rem;
+}
+.top .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--white); font-weight: 600; text-decoration: none; letter-spacing: -.01em; }
+.top .brand img {
+  width: 36px; height: 36px; border-radius: 50%; display: block;
+  box-shadow: 0 0 0 1px rgba(126, 247, 248, .45), 0 0 16px rgba(126, 247, 248, .3);
+}
+
+.top .claim { color: var(--grey); }
+
+/* Pille */
+.pill {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(8, 20, 30, .92);
+  border: 1.5px solid rgba(126, 247, 248, .6);
+  color: rgba(126, 247, 248, .85);
+  font-size: .75rem; font-weight: 600;
+  letter-spacing: .3em; text-transform: uppercase;
+}
+
+/* Hero */
+.hero { text-align: center; padding: 72px 0 48px; }
+.hero h1 {
+  margin: 28px 0 0;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 7.2vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+.special {
+  display: block;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic; font-weight: 400;
+  font-size: 1.35em;
+  letter-spacing: 0;
+  line-height: .95;
+  color: var(--cyan);
+  text-shadow: 0 0 16px rgba(126, 247, 248, .6), 0 0 54px rgba(126, 247, 248, .3);
+}
+.special.inline { display: inline; }
+.lead {
+  max-width: 560px; margin: 28px auto 0;
+  color: var(--grey); font-size: 1.125rem;
+}
+
+/* Karte K2 mit Cyan-Lichtkante */
+.card {
+  border: 1.6px solid transparent;
+  border-radius: var(--radius);
+  background: linear-gradient(var(--surface), var(--surface)) padding-box, var(--edge) border-box;
+}
+
+/* Bild + Formular */
+.offer {
+  display: grid; gap: 20px;
+  grid-template-columns: 1fr;
+  margin-bottom: 96px;
+}
+@media (min-width: 820px) { .offer { grid-template-columns: 1fr 1fr; } }
+
+.offer .media { overflow: hidden; padding: 0; aspect-ratio: 1 / 1; }
+.offer .media img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: calc(var(--radius) - 2px); }
+
+.signup { padding: clamp(24px, 4vw, 40px); display: flex; flex-direction: column; justify-content: center; }
+.signup h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; line-height: 1.15; letter-spacing: -.02em; }
+.signup p { margin: 12px 0 0; color: var(--grey); }
+.signup form { margin-top: 28px; display: grid; gap: 12px; }
+.signup label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.signup input[type=email] {
+  width: 100%; padding: 15px 16px;
+  font: inherit; font-size: 1rem; color: var(--white);
+  background: var(--navy);
+  border: 1px solid rgba(142, 153, 168, .45);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.signup input[type=email]::placeholder { color: var(--grey); }
+.signup input[type=email]:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(126, 247, 248, .18); }
+
+.btn {
+  display: inline-flex; justify-content: center; align-items: center;
+  padding: 15px 22px;
+  font: inherit; font-size: 1rem; font-weight: 600;
+  color: var(--navy); background: var(--cyan);
+  border: 0; border-radius: 10px; cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 24px rgba(126, 247, 248, .25);
+  transition: transform .15s ease, box-shadow .2s ease, opacity .2s;
+}
+.btn:hover { box-shadow: 0 0 36px rgba(126, 247, 248, .4); }
+.btn:active { transform: scale(.98); }
+.btn[disabled] { opacity: .6; cursor: default; }
+
+.fine { font-size: .82rem !important; color: var(--grey); line-height: 1.5; }
+.error { color: #F75C61; font-size: .9rem; margin: 0 !important; }
+.error:empty { display: none; }
+
+/* Handy: Formular vor dem Bild, damit der Button ohne Scrollen sichtbar ist */
+@media (max-width: 819px) {
+  .offer .signup { order: -1; }
+  .hero { padding: 48px 0 32px; }
+}
+
+/* Inhalt */
+.section { padding: 0 0 96px; }
+.label {
+  font-size: .75rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(126, 247, 248, .85);
+}
+.inside { display: grid; gap: 40px; grid-template-columns: 1fr; }
+@media (min-width: 820px) { .inside { grid-template-columns: 5fr 7fr; gap: 56px; } }
+.inside h2 { margin: 16px 0 0; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; letter-spacing: -.03em; font-weight: 600; }
+.inside .intro p { color: var(--grey); margin: 18px 0 0; }
+
+.features { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; } }
+.feature { padding: 24px; }
+.feature svg { width: 26px; height: 26px; stroke: var(--cyan); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px rgba(126, 247, 248, .35)); }
+.feature h3 { margin: 16px 0 0; font-size: 1.1rem; font-weight: 600; letter-spacing: -.01em; }
+.feature p { margin: 8px 0 0; color: var(--grey); font-size: .98rem; }
+
+/* FAQ */
+.faq { max-width: 720px; }
+.faq h2 { margin: 16px 0 24px; font-size: clamp(1.6rem, 3.5vw, 2.2rem); letter-spacing: -.03em; font-weight: 600; }
+.faq details { border-top: 1px solid rgba(142, 153, 168, .2); padding: 18px 0; }
+.faq details:last-child { border-bottom: 1px solid rgba(142, 153, 168, .2); }
+.faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--cyan); font-weight: 400; font-size: 1.3rem; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { color: var(--grey); margin: 10px 0 0; }
+
+/* Fußzeile */
+.foot {
+  display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between;
+  padding: 28px 0 40px; color: var(--grey); font-size: .88rem;
+  border-top: 1px solid rgba(142, 153, 168, .15);
+}
+.foot a { color: var(--grey); text-decoration: none; }
+.foot a:hover { color: var(--white); }
+.foot nav { display: flex; gap: 20px; flex-wrap: wrap; }
+
+/* Danke-Seite */
+.thanks { min-height: 72vh; display: grid; place-items: center; padding: 48px 0; }
+.thanks .card { max-width: 640px; width: 100%; padding: clamp(28px, 6vw, 56px); text-align: left; }
+.check {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--cyan); color: var(--navy);
+  box-shadow: 0 0 28px rgba(126, 247, 248, .45);
+}
+.check svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.thanks h1 { margin: 28px 0 0; font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.05; letter-spacing: -.035em; font-weight: 600; }
+.thanks p { color: var(--grey); margin: 18px 0 0; }
+.thanks .next { margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(142, 153, 168, .2); }
+.thanks .next p { margin: 0 0 16px; color: var(--white); }
+
+/* Rechtliches */
+.legal { max-width: 720px; padding: 56px 0 80px; }
+.legal h1 { font-size: 2.2rem; letter-spacing: -.03em; margin: 0 0 8px; }
+.legal h2 { font-size: 1.2rem; margin: 40px 0 8px; }
+.legal p, .legal li { color: var(--grey); }
+
+/* Eintritt: ein Element nach dem anderen, weich */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { opacity: 0; transform: translateY(14px); animation: rise .7s cubic-bezier(.22, 1, .36, 1) forwards; }
+  .d1 { animation-delay: .05s; } .d2 { animation-delay: .2s; } .d3 { animation-delay: .38s; }
+  .d4 { animation-delay: .55s; } .d5 { animation-delay: .72s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+}
+
+/* ---- Conversion-Elemente (19./20.11.2026, cro-Skill) ---- */
+
+/* Längere Angebots-Überschrift etwas kleiner */
+.hero h1.h-offer { font-size: clamp(2.2rem, 6vw, 4.2rem); max-width: 900px; margin-inline: auto; }
+
+/* Sichtbares Label statt nur Platzhalter */
+.signup .field-label {
+  position: static; width: auto; height: auto; overflow: visible; clip: auto;
+  font-size: .85rem; font-weight: 600; color: var(--white); margin-bottom: -4px;
+}
+
+/* Tippfehler-Hinweis */
+.hint { margin: -4px 0 0 !important; font-size: .9rem; color: var(--white) !important; }
+.hint .link {
+  font: inherit; color: var(--cyan); background: none; border: 0; padding: 0;
+  text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+}
+
+/* Drei Schritte unter dem Button */
+.steps {
+  list-style: none; padding: 0; margin: 4px 0 0;
+  display: flex; justify-content: space-between; gap: 8px;
+  font-size: .8rem; color: var(--grey);
+}
+.steps li, .progress li { display: flex; align-items: center; gap: 7px; }
+.steps b, .progress b {
+  flex: none; width: 22px; height: 22px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: .72rem; font-weight: 600;
+  border: 1.5px solid rgba(126, 247, 248, .55); color: var(--cyan);
+}
+
+.proof { margin-top: 20px !important; padding-top: 16px; border-top: 1px solid rgba(142, 153, 168, .18); font-size: .85rem; color: var(--grey); }
+
+/* Zweiter Aufruf am Seitenende */
+.final-cta { text-align: center; }
+.final-cta h2 { margin: 0; font-size: clamp(1.8rem, 4.5vw, 2.8rem); letter-spacing: -.03em; font-weight: 600; }
+.final-cta p { color: var(--grey); margin: 14px 0 28px; }
+
+/* Fortschritt auf der Danke-Seite */
+.progress {
+  list-style: none; padding: 0; margin: 0 0 8px;
+  display: flex; flex-wrap: wrap; gap: 10px 22px;
+  font-size: .85rem; color: var(--grey);
+}
+.progress .done { color: var(--cyan); }
+.progress .done b { background: var(--cyan); color: var(--navy); border-color: var(--cyan); }
+.progress .now { color: var(--white); font-weight: 600; }
+.progress .now b { background: rgba(126, 247, 248, .15); box-shadow: 0 0 14px rgba(126, 247, 248, .35); }
+.thanks .btn { margin-top: 28px; }
+.thanks .next .btn { margin-top: 0; }
+
+/* Zweitrangiger Button */
+.btn-ghost {
+  background: transparent; color: var(--cyan);
+  border: 1.5px solid rgba(126, 247, 248, .6); box-shadow: none;
+}
+.btn-ghost:hover { box-shadow: 0 0 20px rgba(126, 247, 248, .2); }
+.btn[hidden] { display: none; }
+
+@media (max-width: 380px) { .steps { font-size: .74rem; } }
+
+/* ---- Seite "Plugins I use" (20.11.2026) ---- */
+.tool { max-width: 860px; margin-inline: auto; }
+.tool-quote { padding: clamp(24px, 4vw, 36px); }
+.tool-quote blockquote {
+  margin: 14px 0 0; font-size: clamp(1.2rem, 2.6vw, 1.5rem); line-height: 1.45;
+  font-weight: 500; letter-spacing: -.01em; color: var(--white);
+}
+.tool-quote .who { margin: 14px 0 0; color: var(--grey); font-size: .95rem; }
+.tool-grid { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: 16px; }
+@media (min-width: 680px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
+.tool-offer { padding: 24px; display: flex; flex-direction: column; }
+.tool-offer h2 { margin: 0; font-size: 1.3rem; font-weight: 600; letter-spacing: -.02em; display: flex; align-items: center; gap: 10px; }
+.tool-offer p { color: var(--grey); margin: 10px 0 20px; flex: 1; }
+.tool-offer .btn { align-self: flex-start; }
+.tool-offer .fine { margin: 12px 0 0; flex: none; }
+.free {
+  font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--cyan); border: 1.5px solid rgba(126, 247, 248, .6); border-radius: 999px; padding: 2px 10px;
+}
+.used-in { margin-top: 40px; }
+.used-in ul { list-style: none; padding: 0; margin: 12px 0 0; }
+.used-in li { padding: 10px 0; border-top: 1px solid rgba(142, 153, 168, .18); color: var(--grey); }
+.used-in li:last-child { border-bottom: 1px solid rgba(142, 153, 168, .18); }
+.used-in a { color: var(--white); text-decoration: none; font-weight: 600; }
+.used-in a:hover { color: var(--cyan); }
+.disclosure { margin-top: 28px !important; }
+
+/* ---- Download-Seite nach der Bestätigung + Kommentar-Beleg (20.11.2026) ---- */
+.howto { margin-top: 32px; }
+.howto ol { margin: 12px 0 0; padding-left: 1.2em; color: var(--grey); }
+.howto li { margin: 6px 0; }
+.howto code { font-size: .9em; color: var(--white); background: rgba(126, 247, 248, .08); padding: 1px 6px; border-radius: 6px; }
+.needs { margin-top: 32px; padding: 22px; background: linear-gradient(var(--navy), var(--navy)) padding-box, var(--edge) border-box; }
+.needs p { margin: 10px 0 0; color: var(--grey); }
+.needs-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.needs-actions .btn { margin-top: 0 !important; }
+.needs .fine { margin-top: 14px !important; }
+.quote { margin: 18px 0 0; padding: 14px 16px; border-left: 2px solid rgba(126, 247, 248, .6); background: rgba(126, 247, 248, .05); border-radius: 0 10px 10px 0; }
+.quote p { margin: 0 !important; color: var(--white) !important; font-size: .95rem; }
+.quote span { display: block; margin-top: 6px; font-size: .8rem; color: var(--grey); }
+
+/* ---- Browser-Flächen aus der Palette (21.11.2026, impeccable craft floor) ---- */
+::selection { background: rgba(126, 247, 248, .85); color: var(--navy); }
+html { scrollbar-color: rgba(126, 247, 248, .28) var(--navy); }
+input, textarea { caret-color: var(--cyan); }
+a:focus-visible, button:focus-visible, summary:focus-visible, .btn:focus-visible {
+  outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 10px;
+}
+
+/* ---- Library (privat, für bestätigte Abonnenten) ---- */
+.lib-head { padding: 64px 0 36px; max-width: 760px; }
+.lib-head h1 { margin: 0; font-size: clamp(2.3rem, 6.4vw, 3.8rem); line-height: 1.04; letter-spacing: -.035em; font-weight: 600; text-wrap: balance; }
+.lib-head .lead { margin: 20px 0 0; max-width: 58ch; }
+.keep { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.keep p { margin: 0 8px 0 0; color: var(--grey); font-size: .95rem; flex-basis: 100%; }
+@media (min-width: 680px) { .keep p { flex-basis: auto; } }
+.keep .btn { padding: 10px 16px; font-size: .92rem; }
+.keep .btn svg { width: 16px; height: 16px; margin-right: 8px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.phone-only { display: none; }
+@media (hover: none) and (pointer: coarse) { .phone-only { display: inline; } }
+
+.shelf { display: grid; gap: 22px; padding-bottom: 80px; }
+.item { display: grid; grid-template-columns: 1fr; overflow: hidden; scroll-margin-top: 24px; transition: box-shadow .9s cubic-bezier(.16, 1, .3, 1); }
+@media (min-width: 860px) { .item { grid-template-columns: 400px 1fr; } }
+.item .thumb { display: block; aspect-ratio: 16 / 9; background: var(--navy); position: relative; overflow: hidden; }
+@media (min-width: 860px) {
+  .item .thumb { align-self: start; margin: 24px 0 24px 24px; border-radius: 12px; box-shadow: 0 0 0 1px rgba(126, 247, 248, .14), 0 18px 40px rgba(0, 0, 0, .35); }
+  .item .body { padding-left: 32px; }
+}
+.item .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.16, 1, .3, 1); }
+.item .thumb:hover img { transform: scale(1.03); }
+.item .body { padding: clamp(22px, 3.6vw, 34px); }
+.item h2 { margin: 0; font-size: clamp(1.45rem, 3vw, 1.8rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.item .desc { margin: 10px 0 0; color: var(--grey); max-width: 60ch; }
+.files { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 9px; }
+.files li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; color: var(--grey); font-size: .96rem; line-height: 1.5; }
+.files svg { width: 18px; height: 18px; margin-top: 2px; stroke: var(--cyan); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.files b { color: var(--white); font-weight: 600; }
+.meta { margin: 18px 0 0; font-size: .85rem; color: var(--grey); font-variant-numeric: tabular-nums; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.how { margin-top: 22px; border-top: 1px solid rgba(142, 153, 168, .2); padding-top: 14px; }
+.how summary { cursor: pointer; font-weight: 600; font-size: .95rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.how summary::-webkit-details-marker { display: none; }
+.how summary::after { content: "+"; color: var(--cyan); font-weight: 400; font-size: 1.25rem; line-height: 1; }
+.how[open] summary::after { content: "−"; }
+.how ol { color: var(--grey); margin: 10px 0 0; padding-left: 1.2em; font-size: .95rem; }
+.how li { margin: 6px 0; }
+.how code { font-size: .9em; color: var(--white); background: rgba(126, 247, 248, .08); padding: 1px 6px; border-radius: 6px; }
+
+/* Die Datei, für die man sich gerade eingetragen hat: Aktiv-Zustand der Karte K2 (BRAND.md) */
+.yours {
+  display: none; font-size: .68rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--navy); background: var(--cyan); border-radius: 999px; padding: 3px 10px;
+}
+.item.is-yours .yours { display: inline-block; }
+.item.is-yours { box-shadow: inset 0 0 0 2px rgba(126, 247, 248, .85), 0 0 70px rgba(126, 247, 248, .22), 0 34px 80px rgba(0, 0, 0, .45); }
+
+.lib-more { display: grid; gap: 28px; padding: 8px 0 88px; border-top: 1px solid rgba(142, 153, 168, .15); padding-top: 44px; }
+@media (min-width: 820px) { .lib-more { grid-template-columns: 1fr 1fr; gap: 56px; } }
+.lib-more h2 { margin: 0; font-size: 1.25rem; font-weight: 600; letter-spacing: -.015em; }
+.lib-more p { margin: 10px 0 0; color: var(--grey); max-width: 52ch; }
+
+.gate { min-height: 70vh; display: grid; place-items: center; text-align: center; padding: 48px 0; }
+.gate h1 { margin: 0; font-size: clamp(2rem, 5.5vw, 3rem); letter-spacing: -.03em; font-weight: 600; line-height: 1.08; }
+.gate p { color: var(--grey); max-width: 46ch; margin: 16px auto 28px; }
+
+/* Danke-Seiten: Hilfe, falls die Mail fehlt */
+.faq.small { margin-top: 32px; max-width: none; }
+.faq.small summary { font-size: .97rem; }
+.faq.small details p { font-size: .95rem; }
+.pc-hint { display: flex; gap: 12px; align-items: flex-start; margin-top: 24px; padding: 14px 16px; border-radius: 12px; background: rgba(126, 247, 248, .06); border: 1px solid rgba(126, 247, 248, .22); }
+.pc-hint svg { flex: none; width: 22px; height: 22px; margin-top: 2px; stroke: var(--cyan); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pc-hint p { margin: 0 !important; color: var(--white) !important; font-size: .95rem; }
+
+/* Öffentliche Library-Seite: was drin ist */
+.shelf-preview { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.shelf-preview li { display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: center; }
+.shelf-preview img { width: 112px; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; display: block; box-shadow: 0 0 0 1px rgba(126, 247, 248, .18); }
+.shelf-preview strong { display: block; font-weight: 600; line-height: 1.3; }
+.shelf-preview span { display: block; color: var(--grey); font-size: .92rem; line-height: 1.45; margin-top: 2px; }
+.faq.small details:last-child { border-bottom: 0; }

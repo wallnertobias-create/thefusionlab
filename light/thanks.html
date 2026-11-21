@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check your inbox · The Fusion Lab</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#050B17">
+  <link rel="preload" href="../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/png" href="../assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/site.css?v=20261121b">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="../"><img src="../assets/logo-192.jpg" width="36" height="36" alt="">The Fusion Lab</a>
+      <span class="claim">Built, not bought.</span>
+    </header>
+
+    <main class="thanks">
+      <div class="card rise d1">
+        <ol class="progress" aria-label="Progress">
+          <li class="done"><b>✓</b>Email</li>
+          <li class="now"><b>2</b>Confirm</li>
+          <li><b>3</b>Library</li>
+        </ol>
+
+        <h1>Check your <span class="special inline">inbox.</span></h1>
+        <p>I just sent a confirmation email to <strong id="sent-to">your inbox</strong>. Open it and click <strong>"Confirm and download"</strong>. Your library opens right after, with the Light file at the top.</p>
+
+        <a class="btn" id="open-mail" href="https://mail.google.com/mail/u/0/#search/in%3Aanywhere+%22Light+Animation+project+file%22" target="_blank" rel="noopener">Open Gmail</a>
+
+        <p class="fine">The subject is <strong>"Confirm to get your Light Animation project file"</strong>.</p>
+
+        <div class="pc-hint">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/></svg>
+          <p>Fusion files open in DaVinci Resolve, so it's easiest to open the email on your computer. On your phone? Confirm anyway, the library has a button to send the link to yourself.</p>
+        </div>
+
+        <div class="faq small">
+          <details>
+            <summary>The email isn't there</summary>
+            <p>Give it a minute, then check Spam and, in Gmail, the Promotions tab. Search for "Fusion Lab". Still nothing? <a href="./">Enter your email again</a>, a new email goes out.</p>
+          </details>
+          <details>
+            <summary>I typed the wrong address</summary>
+            <p>No problem. <a href="./">Enter it again</a> with the right one. The wrong one never gets confirmed, so it receives nothing.</p>
+          </details>
+          <details>
+            <summary>I already signed up before</summary>
+            <p>Then the email takes you straight to your library again. It's the same library with every file.</p>
+          </details>
+        </div>
+
+
+        <div class="next">
+          <p>While you wait: watch the next rebuild on YouTube.</p>
+          <a class="btn btn-ghost" href="https://www.youtube.com/@thefusionlabfx?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="foot">
+      <span>The Fusion Lab · Tobias Wallner</span>
+      <nav>
+        <a href="https://www.youtube.com/@thefusionlabfx">YouTube</a>
+        <a href="https://www.tiktok.com/@thefusionlabfx">TikTok</a>
+        <a href="../legal.html">Imprint &amp; Privacy</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    // Zeigt die eingegebene Adresse und den passenden Postfach-Button (nur lokal im Browser gespeichert).
+    (function () {
+      var email = null;
+      try { email = sessionStorage.getItem("tfl_email"); } catch (x) {}
+      var btn = document.getElementById("open-mail");
+      if (!email) { return; }
+      document.getElementById("sent-to").textContent = email;
+      var dom = (email.split("@")[1] || "").toLowerCase();
+      var q = encodeURIComponent('in:anywhere "Light Animation project file"');
+      var apps = {
+        "gmail.com": ["Open Gmail", "https://mail.google.com/mail/u/0/#search/" + q],
+        "googlemail.com": ["Open Gmail", "https://mail.google.com/mail/u/0/#search/" + q],
+        "outlook.com": ["Open Outlook", "https://outlook.live.com/mail/0/"],
+        "hotmail.com": ["Open Outlook", "https://outlook.live.com/mail/0/"],
+        "live.com": ["Open Outlook", "https://outlook.live.com/mail/0/"],
+        "yahoo.com": ["Open Yahoo Mail", "https://mail.yahoo.com/"],
+        "yahoo.co.in": ["Open Yahoo Mail", "https://mail.yahoo.com/"],
+        "icloud.com": ["Open iCloud Mail", "https://www.icloud.com/mail"],
+        "rediffmail.com": ["Open Rediffmail", "https://mail.rediff.com/"]
+      };
+      var app = apps[dom];
+      if (app) { btn.textContent = app[0]; btn.href = app[1]; }
+      else { btn.hidden = true; }
+    })();
+  </script>
+  <!-- Cloudflare Web Analytics (cookielos, siehe legal.html#privacy) -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "582ed70f904c4263ada892747ebbc93d"}'></script>
+</body>
+</html>

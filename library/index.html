@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Fusion project files · The Fusion Lab Library</title>
+  <meta name="description" content="Free DaVinci Resolve Fusion project files from The Fusion Lab tutorials: finished comps, every expression as text and the assets. Sign up once, get every file.">
+  <meta property="og:title" content="The Fusion Lab Library: free Fusion project files">
+  <meta property="og:description" content="Finished comps, every expression as text and the assets from my DaVinci Resolve Fusion tutorials. Free.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://thefusionlabfx.com/assets/logo-512.jpg">
+  <meta property="og:url" content="https://thefusionlabfx.com/library/">
+  <meta name="theme-color" content="#050B17">
+  <link rel="preload" href="../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/png" href="../assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/site.css?v=20261121b">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="../"><img src="../assets/logo-192.jpg" width="36" height="36" alt="">The Fusion Lab</a>
+      <span class="claim">Built, not bought.</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1 class="rise d1 h-offer">Compare your build with <span class="special inline">mine.</span></h1>
+        <p class="lead rise d2">Free project files from my DaVinci Resolve Fusion tutorials: the finished comps and the assets I used, each with a short guide. Sign up once and you get every file, including the ones I add with each new video.</p>
+      </section>
+
+      <section class="offer">
+        <div class="card signup rise d3">
+          <h2>Where should I send your access?</h2>
+          <p>Enter your email and confirm it in your inbox. Your library opens right after.</p>
+
+          <!-- Formular geht an Kit-Formular "Library" (Bestätigung führt in die private Library). -->
+          <form id="signup" action="https://app.kit.com/forms/10219867/subscriptions" method="post" data-thanks="thanks.html" novalidate>
+            <label class="field-label" for="email">Email</label>
+            <input id="email" type="email" name="email_address" placeholder="name@gmail.com" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required>
+            <p class="hint" id="typo" hidden></p>
+            <button class="btn" type="submit">Get free access</button>
+            <p class="error" id="form-error" role="alert" aria-live="polite"></p>
+            <ol class="steps" aria-label="How it works">
+              <li><b>1</b>Enter email</li>
+              <li><b>2</b>Confirm in inbox</li>
+              <li><b>3</b>Open the library</li>
+            </ol>
+            <p class="fine">Free. No spam, unsubscribe anytime. You'll also get my new Fusion tutorials now and then. <a href="../legal.html#privacy">Privacy</a></p>
+          </form>
+          <p class="proof">From The Fusion Lab, 1,800+ subscribers on YouTube</p>
+        </div>
+
+        <div class="card signup rise d4">
+          <h2>In the library right now</h2>
+          <p>Each file comes with a short guide on how to open it.</p>
+          <ul class="shelf-preview" style="margin-top:24px">
+            <li><img src="../assets/lib-light.jpg" width="224" height="126" alt=""><span><strong>Light Animation</strong><span>Finished comp, all 8 expressions explained, preview</span></span></li>
+            <li><img src="../assets/lib-saas.jpg" width="224" height="126" alt=""><span><strong>Apple-Style SaaS Ad</strong><span>4 Fusion setups, 25 country flags, map, SF Symbols guide</span></span></li>
+            <li><img src="../assets/lib-shape3d.jpg" width="224" height="126" alt="" loading="lazy"><span><strong>3D Shape Array</strong><span>Finished comp with camera, lights and the reverse trick</span></span></li>
+            <li><img src="../assets/lib-apple.jpg" width="224" height="126" alt="" loading="lazy"><span><strong>Apple-Style UI Animation</strong><span>Finished comp from Part 1 and 2, avatar, cursor, preview</span></span></li>
+            <li><img src="../assets/lib-viral.jpg" width="224" height="126" alt="" loading="lazy"><span><strong>Viral Particle Animation</strong><span>Finished comp with the particle burst, preview</span></span></li>
+          </ul>
+          <p class="fine" style="margin-top:20px">The next file is added when the next tutorial is out.</p>
+        </div>
+      </section>
+
+      <section class="section faq">
+        <h2>Good to know</h2>
+        <details>
+          <summary>Is it really free?</summary>
+          <p>Yes. Enter your email, confirm it, and the library opens with every file.</p>
+        </details>
+        <details>
+          <summary>What do I need?</summary>
+          <p>DaVinci Resolve. Each file says which version it was built in and whether it needs anything else, like a font or a plugin.</p>
+        </details>
+        <details>
+          <summary>Why do I have to confirm my email?</summary>
+          <p>So the access goes to you and nobody can sign you up without asking. It's one click in the email.</p>
+        </details>
+        <details>
+          <summary>What happens to my email?</summary>
+          <p>It's stored with Kit, the email service I use, only to send you the library and my emails. Every email has an unsubscribe link. Details in the <a href="../legal.html#privacy">privacy notice</a>.</p>
+        </details>
+      </section>
+
+      <section class="section final-cta">
+        <h2>Ready to compare your <span class="special inline">build?</span></h2>
+        <p>The library is free. Signing up takes ten seconds.</p>
+        <a class="btn" href="#email" id="to-form">Get free access</a>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>The Fusion Lab · Tobias Wallner</span>
+      <nav>
+        <a href="../tools/">Plugins I use</a>
+        <a href="https://www.youtube.com/@thefusionlabfx">YouTube</a>
+        <a href="../legal.html">Imprint &amp; Privacy</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    // Sendet die E-Mail im Hintergrund an Kit und leitet bei Erfolg auf die Danke-Seite.
+    // Ohne JavaScript oder bei Netzwerkfehlern geht das Formular normal an Kit.
+    (function () {
+      var form = document.getElementById("signup");
+      var input = form.email_address;
+      var btn = form.querySelector("button");
+      var err = document.getElementById("form-error");
+      var typo = document.getElementById("typo");
+      var label = btn.textContent;
+      var DOMAINS = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com", "live.com",
+                     "rediffmail.com", "yahoo.co.in", "protonmail.com", "gmx.de", "gmx.at", "web.de"];
+
+      function dist(a, b) {
+        var m = [], i, j;
+        for (i = 0; i <= a.length; i++) { m[i] = [i]; }
+        for (j = 0; j <= b.length; j++) { m[0][j] = j; }
+        for (i = 1; i <= a.length; i++) {
+          for (j = 1; j <= b.length; j++) {
+            m[i][j] = Math.min(m[i - 1][j] + 1, m[i][j - 1] + 1, m[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+          }
+        }
+        return m[a.length][b.length];
+      }
+
+      // Tippfehler in der Domain erkennen, z. B. gmial.com oder gmail.con
+      function suggest() {
+        var v = input.value.trim().toLowerCase(), at = v.lastIndexOf("@");
+        typo.hidden = true;
+        if (at < 1) { return; }
+        var dom = v.slice(at + 1);
+        if (!dom || DOMAINS.indexOf(dom) !== -1) { return; }
+        var best = null, bestD = 3;
+        DOMAINS.forEach(function (d) { var x = dist(dom, d); if (x < bestD) { bestD = x; best = d; } });
+        if (best) {
+          var fixed = v.slice(0, at + 1) + best;
+          var b = document.createElement("button");
+          b.type = "button"; b.className = "link"; b.textContent = fixed;
+          b.onclick = function () { input.value = fixed; typo.hidden = true; input.focus(); };
+          typo.textContent = "Did you mean ";
+          typo.appendChild(b);
+          typo.appendChild(document.createTextNode("?"));
+          typo.hidden = false;
+        }
+      }
+      input.addEventListener("blur", suggest);
+      input.addEventListener("input", function () { err.textContent = ""; if (!typo.hidden) { suggest(); } });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var email = input.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          err.textContent = "Please enter a valid email address, for example name@gmail.com.";
+          input.focus();
+          return;
+        }
+        err.textContent = "";
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        try { sessionStorage.setItem("tfl_email", email); } catch (x) {}
+
+        fetch(form.action, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new URLSearchParams(new FormData(form))
+        })
+          .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+          .then(function (r) {
+            if (r.ok && r.data && r.data.status !== "failed") {
+              window.location.href = form.getAttribute("data-thanks");
+              return;
+            }
+            var msg = r.data && r.data.errors && r.data.errors.messages && r.data.errors.messages[0];
+            err.textContent = msg || "Something went wrong. Please try again.";
+            btn.disabled = false;
+            btn.textContent = label;
+          })
+          .catch(function () { form.submit(); });
+      });
+
+      // Zweiter Button am Seitenende: zum Feld springen und es aktivieren
+      var to = document.getElementById("to-form");
+      if (to) {
+        to.addEventListener("click", function (e) {
+          e.preventDefault();
+          input.scrollIntoView({ behavior: "smooth", block: "center" });
+          setTimeout(function () { input.focus({ preventScroll: true }); }, 450);
+        });
+      }
+    })();
+  </script>
+  <!-- Cloudflare Web Analytics (cookielos, siehe legal.html#privacy) -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "582ed70f904c4263ada892747ebbc93d"}'></script>
+</body>
+</html>
